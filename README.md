@@ -56,9 +56,15 @@ The following steps were followed:
    - XGBoost
    - Gradient Boosting
 4. **Evaluation Metrics**:
-   - MAE (Mean Absolute Error)
-   - RMSE (Root Mean Square Error)
-   - R² Score
+   | Metric                   | Description                                                                                                                                                   |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Accuracy**             | Measures the proportion of correctly predicted instances (both positives and negatives). <br> **Formula:** `(TP + TN) / (TP + TN + FP + FN)`                  |
+| **Precision**            | Measures how many of the predicted positive cases were actually positive. <br> **Formula:** `TP / (TP + FP)`                                                  |
+| **Recall (Sensitivity)** | Measures how many actual positive cases were correctly identified. <br> **Formula:** `TP / (TP + FN)`                                                         |
+| **F1 Score**             | Harmonic mean of Precision and Recall; balances false positives and false negatives. <br> **Formula:** `2 * (Precision * Recall) / (Precision + Recall)`      |
+| **ROC-AUC Score**        | Area under the Receiver Operating Characteristic curve; evaluates the classifier’s ability to distinguish between classes.                                    |
+| **Confusion Matrix**     | Displays the counts of true positives (TP), true negatives (TN), false positives (FP), and false negatives (FN) to give a full overview of model performance. |
+
 
 ## Technologies Used
 
