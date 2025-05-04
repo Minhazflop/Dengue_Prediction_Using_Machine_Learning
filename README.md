@@ -1,7 +1,7 @@
 
 # Dengue Prediction Using Machine Learning
 
-This project aims to develop a machine learning-based system to predict the likelihood of dengue outbreaks based on climatic and seasonal data. The goal is to enhance early warning capabilities, allowing healthcare providers and governments to act promptly to mitigate the effects of dengue fever.
+This project aims to develop a machine learning-based system to predict the likelihood of dengue outbreaks based hematological data. The goal is to enhance early warning capabilities, allowing healthcare providers and governments to act promptly to mitigate the effects of dengue fever.
 
 ## Table of Contents
 
