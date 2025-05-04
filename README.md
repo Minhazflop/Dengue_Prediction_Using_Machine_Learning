@@ -35,13 +35,13 @@ Traditional methods for forecasting dengue outbreaks are often delayed or inaccu
 
 ## Dataset Description
 
-Total Samples: 1523
+- Total Samples: 1523
 
-Total Features: 18 input features + 1 output label
+- Total Features: 18 input features + 1 output label
 
-Type of Data: Structured, tabular medical diagnostic data
+- Type of Data: Structured, tabular medical diagnostic data
 
-Label Column: Result (Categorical: positive, negative)
+- Label Column: Result (Categorical: positive, negative)
 
 
 ## Methodology
