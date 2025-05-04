@@ -20,7 +20,7 @@ This project aims to develop a machine learning-based system to predict the like
 
 ## Project Overview
 
-Dengue is a mosquito-borne viral infection prevalent in tropical and subtropical regions. Predicting outbreaks is essential for timely preventive measures. This project uses machine learning models to analyze environmental features and predict the number of dengue cases with high accuracy.
+Dengue is a mosquito-borne viral infection prevalent in tropical and subtropical regions. Predicting outbreaks is essential for timely preventive measures. This project uses machine learning models to analyse environmental features and indicate the number of dengue cases with high accuracy.
 
 ## Problem Statement
 
@@ -35,13 +35,13 @@ Traditional methods for forecasting dengue outbreaks are often delayed or inaccu
 
 ## Dataset Description
 
-The dataset includes climate and dengue case data across two major cities in Brazil: San Juan and Iquitos. Key features include:
+Total Samples: 1523
 
-- Temperature (avg, min, max)
-- Precipitation
-- Humidity
-- Week of the year
-- Number of dengue cases
+Total Features: 18 input features + 1 output label
+
+Type of Data: Structured, tabular medical diagnostic data
+
+Label Column: Result (Categorical: positive, negative)
 
 
 ## Methodology
