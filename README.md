@@ -1,91 +1,257 @@
 
-# Dengue Prediction Using Machine Learning
+# 🦟 Dengue Prediction Using Machine Learning
 
-This project aims to develop a machine learning-based system to predict the likelihood of dengue outbreaks based hematological data. The goal is to enhance early warning capabilities, allowing healthcare providers and governments to act promptly to mitigate the effects of dengue fever.
+### A Machine Learning Approach to Dengue Classification Using Hematological Data
 
-## Table of Contents
+Dengue is one of the major public health concerns in Bangladesh. Early identification of dengue cases can help support timely medical assessment and patient management.
 
-- [Project Overview](#project-overview)
-- [Problem Statement](#problem-statement)
-- [Objectives](#objectives)
-- [Dataset Description](#dataset-description)
-- [Methodology](#methodology)
-- [Technologies Used](#technologies-used)
-- [Results and Findings](#results-and-findings)
-- [Conclusion](#conclusion)
-- [Future Work](#future-work)
-- [Contributors](#contributors)
+This project explores the application of Machine Learning techniques to classify dengue-positive and dengue-negative cases using patients' hematological data. It involves Exploratory Data Analysis (EDA), data preprocessing, model development, hyperparameter tuning, performance evaluation, and Explainable AI.
+
+The primary objective was to compare different machine learning algorithms and identify a model that performs effectively on the available dataset.
 
 ---
 
-## Project Overview
+## 📌 Project Overview
 
-Dengue is a mosquito-borne viral infection prevalent in tropical and subtropical regions. Predicting outbreaks is essential for timely preventive measures. This project uses machine learning models to analyse environmental features and indicate the number of dengue cases with high accuracy.
+The project uses clinical hematological features to develop a binary classification system for dengue prediction.
 
-## Problem Statement
+Rather than relying on a single algorithm, multiple machine learning models were implemented and evaluated to compare their predictive performance.
 
-Traditional methods for forecasting dengue outbreaks are often delayed or inaccurate. There is a need for a reliable predictive model that uses environmental and climate data to anticipate dengue trends and help public health authorities prepare effectively.
+**Key objectives:**
+- Explore and understand the dataset through EDA.
+- Identify data distributions, patterns, and potential outliers.
+- Perform data cleaning and preprocessing.
+- Train and compare different machine learning classifiers.
+- Optimize model performance through hyperparameter tuning.
+- Evaluate models using multiple performance metrics.
+- Interpret model predictions using LIME (Explainable AI).
 
-## Objectives
+---
 
-- Analyze dengue trends and climatic influences.
-- Apply machine learning algorithms to build predictive models.
-- Evaluate and compare model performance.
-- Provide insights to aid in dengue outbreak prevention.
+## 📂 Dataset Information
 
-## Dataset Description
+**Dataset:** Dengue Fever Hematological Dataset: Clinical Insights for Improved Diagnosis and Patient Management
 
-- Total Samples: 1523
+**Source:** [Mendeley Data](https://data.mendeley.com/)
 
-- Total Features: 18 input features + 1 output label
+The dataset contains 1,523 patient records and 18 features, including demographic and hematological information.
 
-- Type of Data: Structured, tabular medical diagnostic data
+### Features
 
-- Label Column: Result (Categorical: positive, negative)
+| Category | Features |
+|---|---|
+| Demographic | Gender, Age |
+| Blood Parameters | Hemoglobin, RBC, HCT |
+| White Blood Cell Parameters | Neutrophils, Lymphocytes, Monocytes, Eosinophils, Total WBC |
+| Red Blood Cell Indices | MCV, MCH, MCHC, RDW-CV |
+| Platelet Parameters | Total Platelet Count, MPV, PDW, PCT |
 
+**Target variable:** Dengue classification (Positive / Negative).
 
-## Methodology
+The original dataset contained:
+- 1,042 dengue-positive cases.
+- 482 dengue-negative cases.
 
-The following steps were followed:
+After removing duplicate records, 1,511 samples remained.
 
-1. **Data Preprocessing**: Handling missing values, feature engineering, and normalization.
-2. **Exploratory Data Analysis (EDA)**: Understanding data distributions and correlations.
-3. **Model Building**:
-   - Linear Regression
-   - Random Forest Regressor
-   - XGBoost
-   - Gradient Boosting
-4. **Evaluation Metrics**:
-   - Accuracy: Overall correctness of the model.
-   - Precision: How many predicted positives are positive?
-   - Recall: How many actual positives are correctly predicted?
-   - F1 Score: Balance between precision and recall.
-   - ROC-AUC: Measures the model’s ability to distinguish between classes.
-   - Confusion Matrix: Summarises true/false positives and negatives
+---
 
-## Technologies Used
+## 🔍 Exploratory Data Analysis (EDA)
 
-- Python (Pandas, NumPy, Scikit-learn, XGBoost, Matplotlib, Seaborn)
-- Jupyter Notebook
-- Google Colab
-- Microsoft Word (for documentation)
+EDA was performed to understand the underlying structure and characteristics of the dataset before applying machine learning algorithms.
 
-## Results and Findings
+The following visualisation techniques were used:
 
-- Among the models, the Random Forest and Gradient Boosting Regressors showed the best performance.
-- Feature importance analysis indicated temperature and humidity as critical predictors of dengue outbreaks.
+- **Histograms:** To understand the distribution of numerical features.
+- **Violin Plots:** To compare feature distributions between dengue-positive and dengue-negative cases.
+- **Boxplots:** To identify potential outliers.
+- **KDE Plots:** To examine the density and distribution patterns of selected features.
+- **Correlation Heatmap:** To explore relationships between numerical variables.
 
-## Conclusion
+These visualisations helped identify patterns in the data, particularly differences in hematological parameters between the two classes.
 
-Machine learning models, particularly ensemble methods like Random Forest and Gradient Boosting, offer a powerful tool for predicting dengue outbreaks using climatic data. These models can significantly aid public health planning and resource allocation.
+---
 
-## Future Work
+## ⚙️ Data Preprocessing
 
-- Incorporate real-time data from health departments.
-- Deploy the model as a web or mobile application.
-- Integrate additional environmental factors such as urbanization or population density.
+The following preprocessing steps were performed:
 
-## Contributors
+1. Checked for missing values.
+2. Removed duplicate records.
+3. Examined potential outliers using boxplots.
+4. Applied Label Encoding to the categorical gender feature.
+5. Used Min-Max Scaling for numerical feature scaling.
+6. Applied SMOTE to address class imbalance.
+7. Split the dataset into training and testing sets using an 80:20 ratio with stratification.
 
-- Minhazur Rahman
+---
 
+## 🤖 Machine Learning Models
+
+Several classification algorithms were implemented and compared.
+
+### Individual Classifiers
+
+- Logistic Regression
+- Support Vector Machine (SVM)
+- K-Nearest Neighbors (KNN)
+- Naive Bayes
+- Decision Tree
+- Random Forest
+
+### Boosting Algorithms
+
+- AdaBoost
+- XGBoost
+- Gradient Boosting
+
+### Ensemble Learning
+
+- Stacking
+- Blending
+
+Different combinations of models were also explored to investigate whether ensemble learning could improve predictive performance.
+
+---
+
+## 🎯 Hyperparameter Optimization
+
+To improve model performance, hyperparameter tuning was performed using:
+
+- GridSearchCV
+- RandomizedSearchCV
+
+The optimization process focused on finding suitable parameter combinations for the different machine learning algorithms.
+
+---
+
+## 📊 Model Evaluation
+
+Models were evaluated using multiple performance metrics:
+
+- Accuracy
+- Precision
+- Recall
+- F1-score
+- Confusion Matrix
+- ROC Curve and AUC
+
+### Model Performance After Hyperparameter Tuning
+
+| Model | Accuracy | Precision | Recall | F1-score |
+|---|---:|---:|---:|---:|
+| Random Forest | **82.30%** | 0.82 | 0.82 | **0.80** |
+| Decision Tree | 77.38% | 0.75 | 0.77 | 0.75 |
+| AdaBoost | 72.79% | 0.72 | 0.73 | 0.72 |
+| XGBoost | 79.02% | 0.80 | 0.79 | 0.76 |
+| Stacking | 80.98% | 0.80 | 0.81 | 0.78 |
+| Blending | 78.03% | 0.79 | 0.78 | 0.75 |
+| SVM | 74.75% | 0.74 | 0.75 | 0.71 |
+| Logistic Regression | 74.75% | 0.75 | 0.75 | 0.71 |
+| Naive Bayes | 72.13% | 0.72 | 0.72 | 0.66 |
+| KNN | 74.42% | 0.73 | 0.74 | 0.71 |
+
+### Best Performing Model
+
+The **Random Forest classifier** achieved the highest accuracy of 82.30%, with an F1-score of 0.80 after hyperparameter optimization using GridSearchCV.
+
+Its optimized hyperparameters included:
+
+- Number of estimators: 100
+- Maximum depth: 5
+
+The ROC-AUC score of the optimized Random Forest model was 0.73.
+
+---
+
+## 🧠 Explainable AI (XAI) – LIME
+
+Beyond evaluating predictive performance, the project also explored model interpretability using **LIME (Local Interpretable Model-Agnostic Explanations)**.
+
+LIME was applied to the best-performing Random Forest model to understand how individual hematological features influenced its predictions.
+
+For an example positive prediction, the model assigned a 69% confidence score to the positive class.
+
+Features such as:
+- Neutrophils
+- PCT
+- Monocytes
+- RDW-CV
+- MCV
+- RBC
+
+were identified as influential in that particular prediction.
+
+This provided a better understanding of how the model arrived at its classification decisions.
+
+---
+
+## 🛠️ Technologies & Tools
+
+- **Programming Language:** Python
+- **Data Analysis:** Pandas, NumPy
+- **Data Visualization:** Matplotlib, Seaborn
+- **Machine Learning:** Scikit-learn
+- **Boosting:** XGBoost
+- **Imbalanced Data Handling:** Imbalanced-learn (SMOTE)
+- **Explainable AI:** LIME
+- **Model Optimization:** GridSearchCV, RandomizedSearchCV
+
+---
+
+## 📁 Project Workflow
+
+1. Dataset Collection
+2. Exploratory Data Analysis
+3. Data Cleaning and Preprocessing
+4. Feature Scaling and Encoding
+5. Train-Test Split
+6. SMOTE Sampling
+7. Machine Learning Model Development
+8. Hyperparameter Optimization
+9. Model Evaluation and Comparison
+10. Explainable AI Using LIME
+
+---
+
+## 💡 Key Learnings
+
+Working on this project helped me develop a better understanding of the complete machine learning workflow.
+
+Some of the key things I learned:
+
+- How to explore and interpret real-world clinical datasets.
+- Why EDA is important before building predictive models.
+- How different machine learning algorithms behave on the same dataset.
+- The importance of hyperparameter tuning and model evaluation.
+- Why accuracy alone is not enough to judge a classification model.
+- How Explainable AI can help interpret individual model predictions.
+
+Most importantly, I learned that developing a machine learning model is not just about achieving a high accuracy score. Understanding the data, evaluating the results, and interpreting model behaviour are equally important.
+
+---
+
+## ⚠️ Limitations
+
+This project was developed for academic and educational purposes.
+
+The model was trained and evaluated on a limited public dataset. Its performance does not establish clinical reliability or suitability for real-world medical diagnosis.
+
+Further validation using larger, diverse, and independently collected clinical datasets would be necessary before considering any practical healthcare application.
+
+---
+
+## 👨‍💻 Author
+
+**Minhazur Rahman**
+
+BSc in Computer Science & Engineering  
+North South University, Dhaka, Bangladesh
+
+Currently pursuing MSc in Data Science at Kingston University, London, UK.
+
+**GitHub:** [Minhazflop](https://github.com/Minhazflop)
+
+---
+
+*An academic project exploring the application of Machine Learning and Explainable AI to dengue classification.*
